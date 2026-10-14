@@ -1,0 +1,197 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import "@/assets/css/main.css";
+---
+
+<Layout>
+  <main>
+    <div class="wrap top">
+      <a class="back" href="/projects/index.html">Back to all work</a>
+      <h1>R&amp;P Consulting</h1>
+      <p class="lead">
+        A custom WordPress theme for a Nairobi tax, accounting and compliance
+        firm, built to rank in local search and to make booking a consultation
+        easy.
+      </p>
+      <dl class="meta">
+        <div>
+          <dt>Client</dt>
+          <dd>R&amp;P Consulting Limited</dd>
+        </div>
+        <div>
+          <dt>What I did</dt>
+          <dd>Design, theme development, deployment</dd>
+        </div>
+        <div>
+          <dt>Year</dt>
+          <dd>2026</dd>
+        </div>
+        <div>
+          <dt>Live site</dt>
+          <dd>
+            <a href="https://randp-consulting.com" rel="noopener"
+              >randp-consulting.com</a
+            >
+          </dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="wrap">
+      <figure class="shot wide">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="slot">
+          <!-- <img src="randp-hero.webp" alt="R&P Consulting homepage" loading="lazy"> -->Hero
+          screenshot: homepage (1600×900)
+        </div>
+      </figure>
+    </div>
+
+    <section>
+      <div class="narrow body-copy">
+        <h2>The problem</h2>
+        <p>
+          Describe the client's situation in two or three sentences: what the
+          old site or process was, what wasn't working, and what they needed
+          instead.
+        </p>
+        <p>
+          Mention the audience too. For R&amp;P, that's business owners in
+          Nairobi looking for help with KRA filings, eTIMS, payroll and
+          compliance.
+        </p>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <h2>What I built</h2>
+        <div class="feats">
+          <div>
+            <h3>A theme written from scratch</h3>
+            <p>
+              No page builder and no starter theme. Templates, custom post types
+              for team members and services, and editable fields through ACF, so
+              the firm updates content without touching code.
+            </p>
+          </div>
+          <div>
+            <h3>Built for local search</h3>
+            <p>
+              Schema markup including Person and ProfilePage for each team
+              member, clean headings and fast loading, so the firm's expertise
+              is visible to Google.
+            </p>
+          </div>
+          <div>
+            <h3>Cookie consent for Kenya</h3>
+            <p>
+              A purpose-built plugin that follows the Kenya Data Protection Act,
+              replacing a generic consent banner.
+            </p>
+          </div>
+          <div>
+            <h3>Fast, light front end</h3>
+            <p>
+              Tailwind CSS v4 compiled with Vite, with HTMX handling blog
+              pagination so pages update without a full reload.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="pair">
+          <figure class="shot half">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="slot">
+              <!-- <img src="randp-team.webp" alt="" loading="lazy"> -->Screenshot:
+              team page
+            </div>
+            <figcaption>Team page with structured profile data.</figcaption>
+          </figure>
+          <figure class="shot half">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="slot">
+              <!-- <img src="randp-services.webp" alt="" loading="lazy"> -->Screenshot:
+              services page
+            </div>
+            <figcaption>Services built from a custom post type.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="narrow body-copy">
+        <h2>How it's built</h2>
+        <p>
+          Use this section for the technical decisions a developer or technical
+          client would care about: why you chose a custom theme, how assets are
+          bundled, how content is structured, and how you handle security and
+          deployment.
+        </p>
+        <ul class="tags">
+          <li>PHP</li>
+          <li>WordPress</li>
+          <li>Tailwind CSS v4</li>
+          <li>Vite</li>
+          <li>HTMX</li>
+          <li>ACF</li>
+          <li>WP-CLI</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Results</h2>
+        <div class="results">
+          <div class="res">
+            <strong>Add a number</strong><span
+              >Lighthouse score, load time or similar</span
+            >
+          </div>
+          <div class="res">
+            <strong>Add a number</strong><span
+              >Enquiries, rankings or traffic after launch</span
+            >
+          </div>
+          <div class="res">
+            <strong>Live since</strong><span>Month and year of launch</span>
+          </div>
+        </div>
+        <blockquote>
+          Add a short quote from the client here.<cite
+            >Name, role, R&amp;P Consulting</cite
+          >
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap next">
+        <a class="proj" href="#"
+          ><small>Next project</small><span class="t">Retail point of sale</span
+          ></a
+        >
+        <a class="btn ghost" href="/projects/index.html">View all work</a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap cta">
+        <h2>Need something like this for your business?</h2>
+        <p>Tell me what you're building and I'll reply with next steps.</p>
+        <a
+          class="btn"
+          href="mailto:kengitahi@proton.me?subject=Project%20enquiry"
+          >Start a project</a
+        >
+      </div>
+    </section>
+  </main>
+</Layout>

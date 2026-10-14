@@ -1,11 +1,351 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
+import Layout from "@/layouts/Layout.astro";
+import headshot from "@/assets/images/me.jpg";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import "@/assets/css/main.css";
 ---
 
 <Layout>
-	<Welcome />
+	<main id="top">
+		<section class="hero">
+			<div class="wrap">
+				<h1 data-split>
+					Building applications that fit<span class="orange"
+						>how your business actually works.</span
+					>
+				</h1>
+				<p class="lead">
+					Custom WordPress and Django development for businesses that
+					require custom solutions: booking systems, point-of-sale,
+					school management, business management tools, and payment
+					integrations.
+				</p>
+				<div class="cta">
+					<a class="btn" href="#contact">Start a project</a>
+					<a class="btn ghost" href="/projects/index.html"
+						>See my work</a
+					>
+				</div>
+				<div class="facts">
+					<span><strong>8+ years</strong> building for the web</span>
+					<span
+						><strong>Nairobi</strong>, working with clients
+						worldwide</span
+					>
+					<span
+						><strong
+							>PHP, Python, WordPress, Django, Tailwind,
+							Alpine.js, HTMX</strong
+						></span
+					>
+				</div>
+			</div>
+		</section>
+
+		<section id="work" class="band">
+			<div class="wrap">
+				<h2>Selected work</h2>
+				<p class="lead">
+					Live projects built for real businesses. Replace the grey
+					frames with screenshots (1600×1000, WebP).
+				</p>
+
+				<div class="projects">
+					<article class="project">
+						<div class="shot">
+							<div class="bar"><i></i><i></i><i></i></div>
+							<div class="slot">
+								<!-- <img src="randp.webp" alt="R&P Consulting homepage" loading="lazy"> -->Screenshot:
+								R&amp;P Consulting homepage
+							</div>
+						</div>
+						<div>
+							<h3>R&amp;P Consulting</h3>
+							<p>
+								A custom WordPress theme for a Nairobi tax and
+								accounting firm: team and service pages,
+								appointment booking, schema markup for search,
+								and a cookie consent plugin built for Kenya's
+								Data Protection Act.
+							</p>
+							<ul class="tags">
+								<li>PHP</li>
+								<li>WordPress</li>
+								<li>Tailwind v4</li>
+								<li>Vite</li>
+								<li>HTMX</li>
+							</ul>
+							<a class="more" href="/projects/randp-consulting"
+								>Read the case study</a
+							>
+						</div>
+					</article>
+
+					<article class="project">
+						<div class="shot">
+							<div class="bar"><i></i><i></i><i></i></div>
+							<div class="slot">
+								<!-- <img src="pos.webp" alt="Point of sale dashboard" loading="lazy"> -->Screenshot:
+								POS sell screen
+							</div>
+						</div>
+						<div>
+							<h3>Retail point of sale</h3>
+							<p>
+								An offline-first POS that keeps selling when the
+								internet drops and syncs when it returns.
+								Barcode scanning with the phone camera, stock
+								and inventory tracking, M-Pesa and Airtel Money
+								payments.
+							</p>
+							<ul class="tags">
+								<li>Python</li>
+								<li>Django</li>
+								<li>Alpine.js</li>
+								<li>SQLite / PostgreSQL</li>
+							</ul>
+							<a class="more" href="#">Read the case study</a>
+						</div>
+					</article>
+
+					<article class="project">
+						<div class="shot">
+							<div class="bar"><i></i><i></i><i></i></div>
+							<div class="slot">
+								<!-- <img src="shuleflow.webp" alt="ShuleFlow admin" loading="lazy"> -->Screenshot:
+								ShuleFlow admin
+							</div>
+						</div>
+						<div>
+							<h3>ShuleFlow</h3>
+							<p>
+								School management for several schools on one
+								platform, each with its own administrators.
+								Students, parents and enrollments, a WhatsApp
+								bot for parents, and M-Pesa fee payments with
+								PDF receipts.
+							</p>
+							<ul class="tags">
+								<li>Python</li>
+								<li>Django</li>
+								<li>Unfold admin</li>
+								<li>M-Pesa</li>
+								<li>WhatsApp API</li>
+							</ul>
+							<a class="more" href="#">Read the case study</a>
+						</div>
+					</article>
+
+					<article class="project">
+						<div class="shot">
+							<div class="bar"><i></i><i></i><i></i></div>
+							<div class="slot">
+								<!-- <img src="georgia-tours.webp" alt="Georgia Tours homepage" loading="lazy"> -->Screenshot:
+								Georgia Tours homepage
+							</div>
+						</div>
+						<div>
+							<h3>Georgia Tours</h3>
+							<p>
+								A travel site for private tours and transfers,
+								with trip search, online payments, a
+								multilingual setup and custom styling on top of
+								the theme.
+							</p>
+							<ul class="tags">
+								<li>WordPress</li>
+								<li>WP Travel Engine</li>
+								<li>Elementor</li>
+								<li>CSS</li>
+							</ul>
+							<a class="more" href="#">Visit the site</a>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section id="services">
+			<div class="wrap">
+				<h2>What I build</h2>
+				<div class="services">
+					<div>
+						<h3>Custom WordPress</h3>
+						<p>
+							Themes and plugins written from scratch, with no
+							page builders. Fast to load, easy for your team to
+							edit, and shaped around how your business works.
+						</p>
+					</div>
+					<div>
+						<h3>Web applications</h3>
+						<p>
+							Laravel and Django systems for bookings, point of
+							sale, school management and internal dashboards,
+							with payments and messaging integrations such as
+							M-Pesa and WhatsApp.
+						</p>
+					</div>
+					<div>
+						<h3>Maintenance and support</h3>
+						<p>
+							Updates, security, bug fixes and new features on a
+							monthly arrangement, with a developer who answers
+							when something breaks.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="about" class="band">
+			<div class="wrap about">
+				<div class="photo">
+					<Image
+						src={headshot}
+						alt="Kennedy Gitahi's headshot"
+						srcset=""
+					/>
+				</div>
+				<div class="copy">
+					<h2>Hi, I'm Kennedy</h2>
+					<p style="margin-top:1.2rem">
+						I'm a freelance developer in Nairobi. I write custom
+						code for businesses that need something a template can't
+						do, and I stay around after launch to keep it running.
+					</p>
+					<p>
+						Clients usually reach me when a site is slow, a plugin
+						stack has become fragile, or a workflow has outgrown
+						spreadsheets.
+					</p>
+					<dl class="stack">
+						<div>
+							<dt>Backend</dt>
+							<dd>PHP, Laravel, Python, Django, SQL</dd>
+						</div>
+						<div>
+							<dt>Frontend</dt>
+							<dd>Tailwind CSS, HTMX, Alpine.js, JavaScript</dd>
+						</div>
+						<div>
+							<dt>Tooling</dt>
+							<dd>WordPress, Vite, Git and GitHub</dd>
+						</div>
+					</dl>
+				</div>
+			</div>
+		</section>
+
+		<section id="clients">
+			<div class="wrap">
+				<h2>What clients say</h2>
+				<div class="quotes">
+					<blockquote class="quote" style="margin:0">
+						Add a one or two sentence client quote here.<cite
+							>Name, role, company</cite
+						>
+					</blockquote>
+					<blockquote class="quote" style="margin:0">
+						Add a one or two sentence client quote here.<cite
+							>Name, role, company</cite
+						>
+					</blockquote>
+					<blockquote class="quote" style="margin:0">
+						Add a one or two sentence client quote here.<cite
+							>Name, role, company</cite
+						>
+					</blockquote>
+				</div>
+			</div>
+		</section>
+
+		<section id="faq" class="band">
+			<div class="wrap">
+				<h2>Questions</h2>
+				<div class="faq">
+					<details name="faq">
+						<summary>How does a project start?</summary>
+						<p>
+							We talk through what you need, then I send a scoped
+							proposal with a fixed price or estimate. Work starts
+							after you approve it.
+						</p>
+					</details>
+					<details name="faq">
+						<summary>How long does it take?</summary>
+						<p>
+							Add your typical timelines here, for example a
+							custom theme in 3 to 5 weeks and a web application
+							in 6 to 12.
+						</p>
+					</details>
+					<details name="faq">
+						<summary>How is pricing set?</summary>
+						<p>
+							Add your approach here: fixed price per project,
+							with a monthly retainer for support afterwards.
+						</p>
+					</details>
+					<details name="faq">
+						<summary>Do you offer support after launch?</summary>
+						<p>
+							Yes. Monthly maintenance covers updates, security
+							and a set number of support hours.
+						</p>
+					</details>
+				</div>
+			</div>
+		</section>
+
+		<section id="contact">
+			<div class="wrap contact">
+				<div>
+					<h2>Let's work together</h2>
+					<p class="lead">
+						Tell me what you're building and I'll reply with next
+						steps.
+					</p>
+					<div class="direct">
+						<p>
+							Prefer email?
+							<a
+								class="mail"
+								href="mailto:kengitahi@proton.me"
+								aria-label="Email kengitahi@proton.me"
+							>
+								<span class="mail-label">Email me</span>
+								<span class="mail-addr" aria-hidden="true"
+									>kengitahi@proton.me</span
+								>
+							</a>
+						</p>
+					</div>
+				</div>
+				<form id="f">
+					<label
+						>Name<input
+							name="name"
+							required
+							autocomplete="name"
+						/></label
+					>
+					<label
+						>Email<input
+							name="email"
+							type="email"
+							required
+							autocomplete="email"
+						/></label
+					>
+					<label
+						>Project details<textarea name="msg" required
+						></textarea></label
+					>
+					<button class="btn" type="submit">Send message</button>
+				</form>
+			</div>
+		</section>
+	</main>
 </Layout>

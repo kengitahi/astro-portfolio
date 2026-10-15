@@ -1,0 +1,450 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import { Image } from "astro:assets";
+
+import ShuleHome from "@/assets/images/shuleflow-home.png";
+
+import ShuleChat from "@/assets/images/shuleflow-whatsapp-1.png";
+
+import ShuleFees from "@/assets/images/shuleflow-whatsapp-2.png";
+
+import "@/assets/css/main.css";
+---
+
+<Layout>
+    <main>
+        <div class="wrap top">
+            <a class="back" href="/projects">&larr; Back to all projects</a>
+
+            <h1>ShuleFlow — WhatsApp-First School Management</h1>
+
+            <p class="lead">
+                A multi-school Django platform that brings school-fee enquiries,
+                M-Pesa payments, receipts and announcements into WhatsApp.
+                School teams manage students, parents, enrollments, fee
+                structures and payment records from a role-aware admin
+                dashboard. Parents don't need to install another app.
+            </p>
+
+            <dl class="meta">
+                <div>
+                    <dt>Client</dt>
+
+                    <dd>Own product</dd>
+                </div>
+
+                <div>
+                    <dt>What I did</dt>
+
+                    <dd>
+                        Product design, Django application architecture, admin
+                        workflows, WhatsApp automation, M-Pesa integration,
+                        payment and receipt processing, debugging and testing.
+                    </dd>
+                </div>
+
+                <div>
+                    <dt>Year</dt>
+
+                    <dd>2026</dd>
+                </div>
+
+                <div>
+                    <dt>Status</dt>
+
+                    <dd>
+                        Core product complete, additional development and
+                        piloting in progress
+                    </dd>
+                </div>
+            </dl>
+        </div>
+
+        <div class="wrap">
+            <figure class="shot wide">
+                <div class="bar"><i></i><i></i><i></i></div>
+
+                <div class="slot">
+                    <Image
+                        src={ShuleHome}
+                        alt="ShuleFlow admin dashboard"
+                        loading="eager"
+                    />
+                </div>
+            </figure>
+
+            <section>
+                <div class="narrow body-copy">
+                    <h2>The problem</h2>
+
+                    <p>
+                        Fee enquiries, statements, payment confirmations and
+                        school announcements can create a steady stream of
+                        manual work. Staff need to identify the right student,
+                        confirm what has been paid, allocate money correctly and
+                        get the information back to the parent without losing
+                        track of conversations or receipts.
+                    </p>
+                    <p>
+                        The same issue also arises with sending payment
+                        receipts, annouceents, fee changes, and other important
+                        information. Parents also have to reach out to staff if
+                        they want to know whats happening in the school.
+                    </p>
+                    <p>
+                        In Kenya, WhatsApp is a familiar communication channel
+                        and M-Pesa is a familiar way to pay. ShuleFlow connects
+                        those everyday tools to a school's underlying student,
+                        billing and payment records, reducing the need to move
+                        between disconnected manual processes.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <section class="band">
+            <div class="wrap">
+                <h2>What I built</h2>
+
+                <div class="feats">
+                    <div>
+                        <h3>A school inside WhatsApp</h3>
+
+                        <p>
+                            Parents message their school's WhatsApp number and
+                            get a simple menu, using list and reply buttons as
+                            well as typed options. They can identify themselves,
+                            link their children, check a fee balance, request a
+                            fee statement, information or school announcement
+                            without leaving the chat.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>M-Pesa fee payments</h3>
+
+                        <p>
+                            Paying fees triggers an M-Pesa STK push straight to
+                            the parent's phone through Safaricom's Daraja API.
+                            Once the payment is confirmed, the parent gets a
+                            receipt on WhatsApp and the school sees the payment
+                            recorded against the right student.
+                        </p>
+                        <p>
+                            Parents also have the option of paying via M-pesa
+                            paybill with debit and credit card payments coming
+                            soon. The management system uses the parent's phone
+                            number and student's admission number to align and
+                            allocate payments.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Multi-school by design</h3>
+
+                        <p>
+                            Many schools run on one system. Each school has its
+                            own WhatsApp number, so the number a message arrives
+                            on identifies the school. Staff accounts are tied to
+                            a school through memberships with roles such as
+                            admin, finance and staff, so people only see and
+                            edit their own school's data. Only a super admin
+                            sees across schools.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Student and parent management</h3>
+
+                        <p>
+                            Students, parents, enrollments, grades, terms and
+                            academic years are managed in the admin. A parent
+                            can be linked to several children, and parents can
+                            be selected right from the student form.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Conversations and enquiries</h3>
+
+                        <p>
+                            Every conversation and message is recorded. Messages
+                            from numbers that aren't registered are stored as
+                            prospects for the receiving school, since they are
+                            often new parents looking for a place.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Announcements and support</h3>
+
+                        <p>
+                            Schools can send announcements to all parents,
+                            specific parents, or parent whose children are in a
+                            specific grade on WhatsApp, a channel they already
+                            read, and parents can ask questions or request help
+                            without phoning the office.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>School admin dashboard</h3>
+
+                        <p>
+                            Built on Django Unfold, giving school staff a modern
+                            admin for fees, payment tracking, parent
+                            communication and basic reports without a custom
+                            back office.
+                        </p>
+                    </div>
+                    <div>
+                        <h3>Grade-based fee structures</h3>
+                        <p>
+                            Fee structures are associated with a grade and
+                            academic period. The admin workflow makes the
+                            structure visible alongside grade details and
+                            enrolled students, while billing services apply
+                            charges to eligible enrollments with
+                            duplicate-charge prevention as a key invariant.
+                        </p>
+                    </div>
+                    <div>
+                        <h3>Payment records and receipts</h3>
+                        <p>
+                            The payment workflow connects a confirmed M-Pesa
+                            transaction to the relevant student account and
+                            allocation, then creates a PDF receipt and tracks
+                            receipt notification separately from the payment.
+                        </p>
+                    </div>
+                    <div>
+                        <h3>Webhook and transaction handling</h3>
+                        <p>
+                            WhatsApp events and Daraja callbacks are handled as
+                            distinct integration paths. Development has covered
+                            cancelled STK requests and failed payment states,
+                            while idempotency, reconciliation and recovery from
+                            interrupted processing remain part of hardening.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="wrap">
+                <div class="pair">
+                    <figure class="shot half">
+                        <div class="bar"><i></i><i></i><i></i></div>
+                        <div class="slot">
+                            <Image
+                                src={ShuleChat}
+                                alt="ShuleFlow WhatsApp menu"
+                                loading="lazy"
+                            />
+                            <figcaption>WhatsApp parent interaction</figcaption>
+                        </div>
+                    </figure>
+
+                    <figure class="shot half">
+                        <div class="bar"><i></i><i></i><i></i></div>
+                        <div class="slot">
+                            <Image
+                                src={ShuleFees}
+                                alt="ShuleFlow fees admin"
+                                loading="lazy"
+                            />
+
+                            <figcaption>School fees flow</figcaption>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="band">
+            <div class="narrow body-copy process">
+                <h2>How it's built</h2>
+
+                <h3>Why WhatsApp and M-Pesa first</h3>
+
+                <p>
+                    A new app asks parents to install software, remember
+                    credentials and learn another interface. WhatsApp provides a
+                    familiar entry point, while M-Pesa supports the payment
+                    step. ShuleFlow connects these channels to structured school
+                    records rather than treating messages and payments as
+                    isolated events.
+                </p>
+
+                <p>
+                    This version of the software is intentionally focused on the
+                    operational journey tht includes identify the parent and
+                    student, retrieve fee information, initiate payment, process
+                    the provider's result, record the payment and issue a
+                    receipt. That creates a testable foundation before expanding
+                    into a broader school ERP.
+                </p>
+
+                <h3>Multi-school architecture</h3>
+
+                <p>
+                    ShuleFlow is a Django project organized around school,
+                    student, academic, billing, payment, document and WhatsApp
+                    responsibilities. A custom email-based user model can be
+                    linked to schools through memberships and roles. Admin
+                    querysets are scoped to the staff member's school, and
+                    school ownership is populated by the application where
+                    appropriate. A super administrator can work across school
+                    boundaries.
+                </p>
+
+                <h3>WhatsApp and payments</h3>
+
+                <p>
+                    The bot receives WhatsApp Cloud API webhook events and uses
+                    conversation state to track the current step and selected
+                    student. It can respond with numbered options, interactive
+                    lists and reply buttons. Conversations and individual
+                    messages are persisted, and unregistered senders can be
+                    retained as prospects instead of disappearing as unmatched
+                    inbound traffic.
+                </p>
+
+                <p>
+                    Fee payments use Safaricom Daraja STK Push to prompt the
+                    parent's phone. The callback is the provider's result signal
+                    since the application records success or failure and links
+                    confirmed payments to the appropriate allocation.
+                </p>
+
+                <p>
+                    A receipt document and a receipt-notification record are
+                    separate concerns, so a WhatsApp delivery problem should not
+                    undo a confirmed payment.
+                </p>
+
+                <h3>Billing and payment lifecycle</h3>
+                <p>
+                    The payment path is designed as a sequence of explicit
+                    records, with the path including an initiated transaction, a
+                    provider callback, a confirmed payment, a student-account
+                    allocation, a PDF receipt and a WhatsApp delivery attempt.
+                </p>
+
+                <p>
+                    This separation makes it possible to investigate where a
+                    flow stopped without confusing a successful payment with a
+                    failed notification.
+                </p>
+
+                <p>
+                    The project also includes a shared confirmed-payment service
+                    so STK and Paybill/C2B payments can reuse the same
+                    allocation and receipt logic.
+                </p>
+
+                <h3>Admin workflows that reflect school operations</h3>
+                <p>
+                    Django Unfold provides the operational interface. Grade
+                    pages bring together enrolled students and fee structures.
+                </p>
+
+                <p>
+                    Student enrollment views show admission numbers in read-only
+                    form and fee structures are managed against the relevant
+                    grade and term.
+                </p>
+
+                <p>
+                    Applying a new fee structure is handled through billing
+                    services, with duplicate-charge prevention treated as an
+                    important invariant.
+                </p>
+
+                <ul class="tags">
+                    <li>Python</li>
+
+                    <li>Django</li>
+
+                    <li>Django Unfold</li>
+
+                    <li>WhatsApp Cloud API</li>
+
+                    <li>M-Pesa Daraja</li>
+
+                    <li>PostgreSQL / SQLite development</li>
+                    <li>PDF receipt generation</li>
+                    <li>Webhook processing</li>
+                    <li>Structured logging</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="wrap">
+                <h2>Where it stands</h2>
+
+                <div class="results">
+                    <div class="res">
+                        <strong>Piloting stage</strong><span
+                            >Core parent journey built and tested against the
+                            Daraja sandbox and deployed to one school</span
+                        >
+                    </div>
+
+                    <div class="res">
+                        <strong>Fees → Payments → Communication</strong><span
+                            >The order the product is being built and validated
+                            in</span
+                        >
+                    </div>
+
+                    <div class="res">
+                        <strong>1 → 5 → 20 → 100+</strong><span
+                            >The target path from one pilot school to a network
+                            of schools</span
+                        >
+                    </div>
+                </div>
+
+                <blockquote>
+                    Parents don't need another app. We bring the school to the
+                    parent through WhatsApp, with M-Pesa integrated into the
+                    experience.<cite>The idea behind ShuleFlow</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="band">
+            <div class="wrap next">
+                <a class="proj" href="/projects/pos-system"
+                    ><small>Next project</small><span class="t"
+                        >Retail POS System</span
+                    ></a
+                >
+
+                <a class="btn ghost" href="/projects">View all work</a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="wrap cta">
+                <h2>
+                    Need a similar website, platform or tool for your business?
+                </h2>
+
+                <p>
+                    Tell me what you're building and I'll reply with next steps.
+                </p>
+
+                <a
+                    class="btn"
+                    href="mailto:kengitahi\@proton.me?subject=Project%20enquiry"
+                    >Start a project</a
+                >
+            </div>
+        </section>
+    </main>
+</Layout>

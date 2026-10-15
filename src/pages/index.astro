@@ -3,6 +3,11 @@ import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import headshot from "@/assets/images/me.jpg";
 
+import RandPHome from "@/assets/images/randp-home.png";
+import POSHome from "@/assets/images/pos-home.png";
+import GeorgiaHome from "@/assets/images/georgia-home.png";
+import ShuleflowHome from "@/assets/images/shuleflow-home.png";
+
 import "@/assets/css/main.css";
 ---
 
@@ -46,18 +51,54 @@ import "@/assets/css/main.css";
 		<section id="work" class="band">
 			<div class="wrap">
 				<h2>Selected work</h2>
-				<p class="lead">
-					Live projects built for real businesses. Replace the grey
-					frames with screenshots (1600×1000, WebP).
-				</p>
+				<p class="lead">Live projects built for real businesses.</p>
 
 				<div class="projects">
 					<article class="project">
 						<div class="shot">
 							<div class="bar"><i></i><i></i><i></i></div>
 							<div class="slot">
-								<!-- <img src="randp.webp" alt="R&P Consulting homepage" loading="lazy"> -->Screenshot:
-								R&amp;P Consulting homepage
+								<Image
+									src={GeorgiaHome}
+									alt="Georgia Tours homepage"
+									loading="lazy"
+								/>
+							</div>
+						</div>
+						<div>
+							<h3>Georgia Tours</h3>
+							<p>
+								A travel site for private tours and transfers,
+								with trip search, online payments, a
+								multilingual setup and custom styling on top of
+								the theme.
+							</p>
+							<ul class="tags">
+								<li>WordPress</li>
+								<li>PHP</li>
+								<li>WP Travel Engine</li>
+								<li>Flitt</li>
+								<li>Yoast SEO</li>
+								<li>Advanced Custom Fields</li>
+								<li>Elementor</li>
+								<li>JSON-LD</li>
+								<li>Frankfurter API</li>
+								<li>WordPress hooks</li>
+							</ul>
+							<a class="more" href="/projects/georgia-tours"
+								>Read the case study</a
+							>
+						</div>
+					</article>
+					<article class="project">
+						<div class="shot">
+							<div class="bar"><i></i><i></i><i></i></div>
+							<div class="slot">
+								<Image
+									src={RandPHome}
+									alt="R&P Consulting homepage"
+									loading="lazy"
+								/>
 							</div>
 						</div>
 						<div>
@@ -86,8 +127,42 @@ import "@/assets/css/main.css";
 						<div class="shot">
 							<div class="bar"><i></i><i></i><i></i></div>
 							<div class="slot">
-								<!-- <img src="pos.webp" alt="Point of sale dashboard" loading="lazy"> -->Screenshot:
-								POS sell screen
+								<Image
+									src={ShuleflowHome}
+									alt="shuleflow homepage"
+									loading="lazy"
+								/>
+							</div>
+						</div>
+						<div>
+							<h3>ShuleFlow</h3>
+							<p>
+								A multi-school Django platform that brings
+								school-fee enquiries, M-Pesa payments, receipts
+								and announcements into WhatsApp.
+							</p>
+							<ul class="tags">
+								<li>Python</li>
+								<li>Django</li>
+								<li>Unfold admin</li>
+								<li>M-Pesa</li>
+								<li>WhatsApp API</li>
+							</ul>
+							<a class="more" href="/projects/shuleflow"
+								>Read the case study</a
+							>
+						</div>
+					</article>
+
+					<article class="project">
+						<div class="shot">
+							<div class="bar"><i></i><i></i><i></i></div>
+							<div class="slot">
+								<Image
+									src={POSHome}
+									alt="Pos homepage"
+									loading="lazy"
+								/>
 							</div>
 						</div>
 						<div>
@@ -104,62 +179,13 @@ import "@/assets/css/main.css";
 								<li>Django</li>
 								<li>Alpine.js</li>
 								<li>SQLite / PostgreSQL</li>
+								<li>Django Unfold</li>
+								<li>HTMX</li>
+								<li>Chart.js</li>
 							</ul>
-							<a class="more" href="#">Read the case study</a>
-						</div>
-					</article>
-
-					<article class="project">
-						<div class="shot">
-							<div class="bar"><i></i><i></i><i></i></div>
-							<div class="slot">
-								<!-- <img src="shuleflow.webp" alt="ShuleFlow admin" loading="lazy"> -->Screenshot:
-								ShuleFlow admin
-							</div>
-						</div>
-						<div>
-							<h3>ShuleFlow</h3>
-							<p>
-								School management for several schools on one
-								platform, each with its own administrators.
-								Students, parents and enrollments, a WhatsApp
-								bot for parents, and M-Pesa fee payments with
-								PDF receipts.
-							</p>
-							<ul class="tags">
-								<li>Python</li>
-								<li>Django</li>
-								<li>Unfold admin</li>
-								<li>M-Pesa</li>
-								<li>WhatsApp API</li>
-							</ul>
-							<a class="more" href="#">Read the case study</a>
-						</div>
-					</article>
-
-					<article class="project">
-						<div class="shot">
-							<div class="bar"><i></i><i></i><i></i></div>
-							<div class="slot">
-								<!-- <img src="georgia-tours.webp" alt="Georgia Tours homepage" loading="lazy"> -->Screenshot:
-								Georgia Tours homepage
-							</div>
-						</div>
-						<div>
-							<h3>Georgia Tours</h3>
-							<p>
-								A travel site for private tours and transfers,
-								with trip search, online payments, a
-								multilingual setup and custom styling on top of
-								the theme.
-							</p>
-							<ul class="tags">
-								<li>WordPress</li>
-								<li>WP Travel Engine</li>
-								<li>Elementor</li>
-								<li>CSS</li>
-							</ul>
-							<a class="more" href="#">Visit the site</a>
+							<a class="more" href="/projects/pos-system"
+								>Read the case study</a
+							>
 						</div>
 					</article>
 				</div>

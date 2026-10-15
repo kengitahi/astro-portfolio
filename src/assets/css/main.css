@@ -262,12 +262,17 @@ nav a.btn:hover {
     text-align: center;
     color: var(--muted);
     font-size: .95rem;
-    padding: 1rem
+    padding: 1rem;
+    max-height: max-content;
 }
 
 .shot img {
     width: 100%;
-    display: block
+    display: block;
+    object-position: top;
+    height: 100%;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 /* ---------- Tags (all pages) ---------- */
@@ -818,7 +823,15 @@ textarea {
 }
 
 .meta a {
-    color: var(--accent-text)
+    color: var(--accent-text);
+    background: linear-gradient(currentColor, currentColor) 0 100%/0 2px no-repeat;
+    padding-bottom: 2px;
+    text-decoration: none;
+    transition: background-size .3s ease
+}
+
+.meta a:hover {
+    background-size: 100% 2px
 }
 
 .body-copy {
@@ -856,7 +869,9 @@ figcaption {
     padding: .8rem 1rem;
     border-top: 1px solid var(--line);
     color: var(--muted);
-    font-size: .9rem
+    font-size: .9rem;
+    display: flex;
+    margin-top: auto;
 }
 
 .pair {
@@ -884,12 +899,20 @@ figcaption {
     }
 }
 
-.feats h3 {
+.feats h3,
+.process h3 {
     padding-top: .9rem;
-    border-top: 3px solid var(--accent)
+    border-top: 3px solid var(--accent);
+    text-transform: capitalize
 }
 
-.feats p {
+.process h3 {
+    border: none;
+    color: var(--text)
+}
+
+.feats p,
+.process p {
     color: var(--muted);
     margin-top: .6rem
 }

@@ -1,5 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+import HomeImage from "@/assets/images/randp-home.png";
+import AboutImage from "@/assets/images/randp-about.png";
+import ServicesImage from "@/assets/images/randp-services.png";
 
 import "@/assets/css/main.css";
 ---
@@ -7,12 +12,14 @@ import "@/assets/css/main.css";
 <Layout>
   <main>
     <div class="wrap top">
-      <a class="back" href="/projects/index.html">Back to all work</a>
+      <a class="back" href="/projects">&larr; Back to all projects</a>
       <h1>R&amp;P Consulting</h1>
       <p class="lead">
-        A custom WordPress theme for a Nairobi tax, accounting and compliance
-        firm, built to rank in local search and to make booking a consultation
-        easy.
+        R&P Consulting is a Nairobi-based tax, accounting, and compliance firm.
+        They needed a website that went beyond describing their services, one
+        that could handle client bookings, onboard new team members without
+        manual admin work, and meet Kenya's data protection requirements, all
+        while being fast and well-structured enough to rank locally on Google.
       </p>
       <dl class="meta">
         <div>
@@ -21,7 +28,10 @@ import "@/assets/css/main.css";
         </div>
         <div>
           <dt>What I did</dt>
-          <dd>Design, theme development, deployment</dd>
+          <dd>
+            Custom WordPress theme development, Scheme.org, SEO and cookie
+            consent plugin development, deployment
+          </dd>
         </div>
         <div>
           <dt>Year</dt>
@@ -30,8 +40,10 @@ import "@/assets/css/main.css";
         <div>
           <dt>Live site</dt>
           <dd>
-            <a href="https://randp-consulting.com" rel="noopener"
-              >randp-consulting.com</a
+            <a
+              href="https://randp-consulting.com"
+              rel="noopener"
+              target="_blank">Visit R&P Consulting</a
             >
           </dd>
         </div>
@@ -42,27 +54,42 @@ import "@/assets/css/main.css";
       <figure class="shot wide">
         <div class="bar"><i></i><i></i><i></i></div>
         <div class="slot">
-          <!-- <img src="randp-hero.webp" alt="R&P Consulting homepage" loading="lazy"> -->Hero
-          screenshot: homepage (1600×900)
+          <Image
+            src={HomeImage}
+            alt="R&P Consulting homepage"
+            loading="eager"
+          />
         </div>
       </figure>
-    </div>
 
-    <section>
-      <div class="narrow body-copy">
-        <h2>The problem</h2>
-        <p>
-          Describe the client's situation in two or three sentences: what the
-          old site or process was, what wasn't working, and what they needed
-          instead.
-        </p>
-        <p>
-          Mention the audience too. For R&amp;P, that's business owners in
-          Nairobi looking for help with KRA filings, eTIMS, payroll and
-          compliance.
-        </p>
-      </div>
-    </section>
+      <section>
+        <div class="narrow body-copy">
+          <h2>The problem</h2>
+          <p>
+            R&amp;P Consulting needed a platform that would become a working
+            part of the business and not just another brochure website. This
+            required onboarding that runs itself, a booking system clients
+            actually want to use, and legal pages and cookie consent built
+            around Kenya's Data Protection Act.
+          </p>
+          <p>
+            They also needed to be found. Structured Schema.org data tells
+            Google exactly who the firm is and what it offers, so local clients
+            searching for tax, accounting, legal and HR help see R&amp;P first.
+          </p>
+          <p>
+            The audience was business owners and individuals across Nairobi who
+            need a trusted hand with KRA filings, eTIMS, payroll, HR, legal, and
+            compliance. This site speaks to them directly.
+          </p>
+          <p>
+            A theme builder or an off-the-shelf plugin stack couldn't get there
+            without ending up slow, fragile, or non-compliant. So I built a
+            custom classic wordpress theme from scratch.
+          </p>
+        </div>
+      </section>
+    </div>
 
     <section class="band">
       <div class="wrap">
@@ -79,16 +106,36 @@ import "@/assets/css/main.css";
           <div>
             <h3>Built for local search</h3>
             <p>
-              Schema markup including Person and ProfilePage for each team
-              member, clean headings and fast loading, so the firm's expertise
-              is visible to Google.
+              Implemented schema markup (AccountingService, Person, FAQPage,
+              BreadcrumbList) sitewide and on individual templates, so search
+              engines can correctly understand and surface the firm's services
+              and team and that the firm's expertise is visible to Google.
             </p>
           </div>
           <div>
-            <h3>Cookie consent for Kenya</h3>
+            <h3>Appointment Booking system</h3>
             <p>
-              A purpose-built plugin that follows the Kenya Data Protection Act,
-              replacing a generic consent banner.
+              Integrated Simply Schedule Appointments with a custom popup modal,
+              so clients can book consultations directly from the site without
+              back-and-forth emails.
+            </p>
+          </div>
+          <div>
+            <h3>Automated Staff Onboarding</h3>
+            <p>
+              Built a custom Team Member post type with a save_post hook that
+              automatically creates a linked WordPress user account whenever a
+              new team member profile is published, removing several manual
+              admin steps every time R&P hires.
+            </p>
+          </div>
+          <div>
+            <h3>Cookie consent and Data Protection Compliance</h3>
+            <p>
+              Built a custom cookie consent plugin and legal pages tailored
+              specifically to Kenya's Data Protection Act (2019) not a generic
+              GDPR template repurposed for a different jurisdiction. The plugin
+              was designed to be reusable across future projects.
             </p>
           </div>
           <div>
@@ -108,37 +155,108 @@ import "@/assets/css/main.css";
           <figure class="shot half">
             <div class="bar"><i></i><i></i><i></i></div>
             <div class="slot">
-              <!-- <img src="randp-team.webp" alt="" loading="lazy"> -->Screenshot:
-              team page
+              <Image
+                src={AboutImage}
+                alt="R&P Consulting About page"
+                loading="lazy"
+              />
+              <figcaption>Team page with structured profile data.</figcaption>
             </div>
-            <figcaption>Team page with structured profile data.</figcaption>
           </figure>
+
           <figure class="shot half">
             <div class="bar"><i></i><i></i><i></i></div>
             <div class="slot">
-              <!-- <img src="randp-services.webp" alt="" loading="lazy"> -->Screenshot:
-              services page
+              <Image
+                src={ServicesImage}
+                alt="R&P Consulting Services page"
+                loading="lazy"
+              />
+              <figcaption>Services built from a custom post type.</figcaption>
             </div>
-            <figcaption>Services built from a custom post type.</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
     <section class="band">
-      <div class="narrow body-copy">
+      <div class="narrow body-copy process">
         <h2>How it's built</h2>
+        <h3>Why a custom theme</h3>
         <p>
-          Use this section for the technical decisions a developer or technical
-          client would care about: why you chose a custom theme, how assets are
-          bundled, how content is structured, and how you handle security and
-          deployment.
+          A page builder plus a stack of plugins would have covered the basics,
+          but not the combination R&amp;P needed, which was Kenya DPA-aware
+          consent, structured data, a booking flow, and fast pages. Every layer
+          in a builder stack adds markup, scripts, and another thing to update.
+        </p>
+        <p>
+          A purpose-built PHP theme ships only what the site uses, and nothing
+          in it depends on a vendor's roadmap. Plugins are limited to the jobs
+          where a mature one is the simpler answer. Scheduling uses Simply
+          Schedule Appointments, and TGMPA makes sure the required ones are
+          installed.
+        </p>
+
+        <h3>Asset pipeline</h3>
+        <p>
+          CSS and JavaScript are bundled with Vite. Styling is Tailwind CSS v4,
+          with the brand's colours and type scale defined as <code>@theme</code> tokens
+          so the design lives in one place. Fonts are self-hosted, and icons are self-hosted
+          SVGs served through a small <code>randp_icon()</code> helper rather than
+          an icon CDN.
+        </p>
+        <p>
+          That means no third-party requests for core assets and no
+          render-blocking calls to external hosts. Interactivity is kept
+          deliberately light since the build Alpine.js for small UI behaviour,
+          and HTMX for blog category filtering and pagination, which swaps in
+          server-rendered HTML instead of shipping a client-side app.
+        </p>
+
+        <h3>Content structure</h3>
+        <p>
+          Content is modelled as custom post types, with ACF fields and custom
+          metaboxes for repeater-style data. Team members and services are their
+          own types, so the client edits structured fields instead of laying out
+          pages.
+        </p>
+        <p>
+          Creating a team member automatically creates a linked WordPress user,
+          which removes a manual onboarding step. Each team profile is also the
+          source for its own Person markup, which supports the firm's
+          credibility signals in search.
+        </p>
+        <p>
+          Structured data is generated from that same content. The site
+          implements Organization, AccountingService, Person, FAQPage, and
+          Article schema, plus Open Graph tags. Nothing is hand-pasted into
+          pages, so the markup stays in sync when the content changes.
+        </p>
+
+        <h3>Privacy and compliance</h3>
+        <p>
+          Cookie consent is a bespoke plugin built around Kenya's Data
+          Protection Act rather than a generic banner. It is kept as a plugin
+          rather than part of the theme so it survives a redesign.
+        </p>
+
+        <h3>Security and deployment</h3>
+        <p>The site sits behind Cloudflare for CDN and WAF.</p>
+        <p>
+          Releases are packaged and pushed to a staging environment with rsync,
+          so the client can review changes before anything touches production.
+        </p>
+        <p>
+          The move to production followed a fixed runbook: full backup, WP-CLI
+          search-replace (skipping GUID columns to keep serialized data intact),
+          DNS cutover, then decommissioning staging.
         </p>
         <ul class="tags">
           <li>PHP</li>
           <li>WordPress</li>
           <li>Tailwind CSS v4</li>
           <li>Vite</li>
+          <li>Alpine.js</li>
           <li>HTMX</li>
           <li>ACF</li>
           <li>WP-CLI</li>
@@ -151,22 +269,21 @@ import "@/assets/css/main.css";
         <h2>Results</h2>
         <div class="results">
           <div class="res">
-            <strong>Add a number</strong><span
-              >Lighthouse score, load time or similar</span
-            >
+            <strong>Sub 2 seconds</strong><span>Load time</span>
           </div>
           <div class="res">
-            <strong>Add a number</strong><span
-              >Enquiries, rankings or traffic after launch</span
-            >
+            <strong>~3000</strong><span>Visitors per month</span>
           </div>
           <div class="res">
-            <strong>Live since</strong><span>Month and year of launch</span>
+            <strong>Live since</strong><span>August 2026</span>
           </div>
         </div>
         <blockquote>
-          Add a short quote from the client here.<cite
-            >Name, role, R&amp;P Consulting</cite
+          Fantastic work by Kennedy. He built us a platforn that incorporated
+          all the functions we needed and gave us a presence on Google. Now, we
+          are proud to share our domain name with clients instead of the
+          company's social media profiles.<cite
+            >Puritie. R, Managing Partner, R&amp;P Consulting</cite
           >
         </blockquote>
       </div>
@@ -174,17 +291,17 @@ import "@/assets/css/main.css";
 
     <section class="band">
       <div class="wrap next">
-        <a class="proj" href="#"
+        <a class="proj" href="/projects/pos-system"
           ><small>Next project</small><span class="t">Retail point of sale</span
           ></a
         >
-        <a class="btn ghost" href="/projects/index.html">View all work</a>
+        <a class="btn ghost" href="/projects">View all work</a>
       </div>
     </section>
 
     <section id="contact">
       <div class="wrap cta">
-        <h2>Need something like this for your business?</h2>
+        <h2>Need a similar website, platform or tool for your business?</h2>
         <p>Tell me what you're building and I'll reply with next steps.</p>
         <a
           class="btn"

@@ -1,0 +1,294 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+import POSHome from "@/assets/images/pos-home.png";
+import POSOrders from "@/assets/images/pos-orders.png";
+import POSSettings from "@/assets/images/pos-settings.png";
+
+import "@/assets/css/main.css";
+---
+
+<Layout>
+  <main>
+    <div class="wrap top">
+      <a class="back" href="/projects">&larr; Back to all projects</a>
+      <h1>Retail POS System — Offline-First Point of Sale</h1>
+      <p class="lead">
+        A Django-based, offline-first point-of-sale system built for small
+        retail businesses. It handles sales recording, inventory management, and
+        returns, and uses a phone's camera for barcode scanning for stock
+        taking, and inventory management, and completing sales instead of
+        requiring dedicated scanner hardware.
+      </p>
+      <dl class="meta">
+        <div>
+          <dt>Client</dt>
+          <dd>Multiple</dd>
+        </div>
+        <div>
+          <dt>What I did</dt>
+          <dd>
+            Full stack Django development, architecture design, testing,
+            deployment.
+          </dd>
+        </div>
+        <div>
+          <dt>Year</dt>
+          <dd>2026</dd>
+        </div>
+        <div>
+          <dt>Live project</dt>
+          <dd>
+            <a
+              href="https://github.com/kengitahi/pos"
+              rel="noopener"
+              target="_blank">See the Project on Github</a
+            >
+          </dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="wrap">
+      <figure class="shot wide">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="slot">
+          <Image src={POSHome} alt="POS system homepage" loading="eager" />
+        </div>
+      </figure>
+
+      <section>
+        <div class="narrow body-copy">
+          <h2>The problem</h2>
+          <p>
+            Small retail businesses often lose sales during internet outages,
+            since most POS systems are cloud-dependent and stop working the
+            moment connectivity drops.
+          </p>
+          <p>
+            In addition, manual inventory counts are slow and error-prone, and
+            dedicated barcode scanner hardware adds cost most small shops can't
+            justify.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <section class="band">
+      <div class="wrap">
+        <h2>What I built</h2>
+        <div class="feats">
+          <div>
+            <h3>Offline-First Architecture</h3>
+            <p>
+              Built on a dual-database setup with SQLite as the default local
+              store, PostgreSQL as the sync target so the system keeps recording
+              sales locally even when the internet is down, then automatically
+              syncs once connectivity returns. A live status widget shows staff
+              their current connection state.
+            </p>
+          </div>
+          <div>
+            <h3>Phone-Camera Stock Taking</h3>
+            <p>
+              Uses the browser's BarcodeDetector API, with a fallback to
+              Html5QrcodeScanner for unsupported devices, so any phone camera
+              becomes a barcode scanner. There's no extra hardware needed for
+              inventory management or sales recording.
+            </p>
+          </div>
+          <div>
+            <h3>Separate manager, staff, and super admin accounts</h3>
+            <p>
+              Separate accounts for managers, staff, and super admins to ensure
+              proper access control and security. Each account type has
+              different levels of access and permissions, and can only perform
+              specific tasks and access different parts of the system.
+            </p>
+          </div>
+          <div>
+            <h3>Customer management</h3>
+            <p>
+              The cashier can add a customer at the time of sale. This way, the
+              cashier can find the customer then next time they visit. Also, all
+              customer purchases and refunds are stored for retrieval later.
+            </p>
+          </div>
+          <div>
+            <h3>Returns & Refunds</h3>
+            <p>
+              Built a dedicated returns module so staff can process refunds
+              without manual database edits or workarounds.
+            </p>
+          </div>
+          <div>
+            <h3>Low Stock Alerts</h3>
+            <p>
+              Automated email notifications fire when inventory drops below a
+              set threshold, so restocking happens before a shelf goes empty.
+            </p>
+          </div>
+          <div>
+            <h3>Management Dashboard</h3>
+            <p>
+              Built on Django Unfold with custom routing and Chart.js
+              visualizations, giving owners date-range filtering and sales
+              insight without needing a separate analytics tool.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="pair">
+          <figure class="shot half">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="slot">
+              <Image src={POSOrders} alt="POS Orders page" loading="lazy" />
+              <figcaption>Orders Page</figcaption>
+            </div>
+          </figure>
+
+          <figure class="shot half">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="slot">
+              <Image src={POSSettings} alt="Pos Settings page" loading="lazy" />
+              <figcaption>Settings Page</figcaption>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="narrow body-copy process">
+        <h2>How it's built</h2>
+        <h3>Why Django, and why offline-first</h3>
+        <p>
+          A point-of-sale system can't stop working when the internet does. The
+          shop keeps trading through outages, and a sale can't wait on a remote
+          server.
+        </p>
+        <p>
+          So the system is built offline-first: SQLite is the main database on
+          the device, so every sale is recorded locally and instantly. When a
+          connection is available, it syncs both ways with PostgreSQL. Local
+          sales are pushed up, and changes made elsewhere come back down.
+        </p>
+        <p>
+          Django gave us a mature ORM, built-in authentication, and an admin we
+          could adapt rather than build from scratch, which kept the codebase
+          small and easy to maintain.
+        </p>
+
+        <h3>Frontend and asset pipeline</h3>
+        <p>
+          The interface is server-rendered Django templates with Alpine.js for
+          small interactions and HTMX for partial page updates, so there is no
+          single-page-app framework to maintain.
+        </p>
+        <p>
+          Assets are bundled with Vite and wired into Django through
+          django-vite. Python dependencies are managed with uv. Dashboards use
+          Chart.js. Barcode scanning uses the browser's BarcodeDetector API, so
+          cashiers can scan with a phone camera instead of dedicated hardware.
+        </p>
+        <p>
+          During development the app is tested on a real phone over the local
+          network, since that is how it will be used.
+        </p>
+
+        <h3>Data and features</h3>
+        <p>
+          The core model covers products, sales, and stock, with low-stock
+          alerts to prompt reordering. Returns and refunds are first-class
+          features rather than manual adjustments, so the records stay accurate.
+        </p>
+        <p>
+          A sync widget shows staff whether the device is caught up, which makes
+          the offline behaviour visible instead of mysterious. Back-office work
+          happens in the Django Unfold admin, which gives managers a modern
+          interface without a custom admin build.
+        </p>
+
+        <h3>Payments</h3>
+        <p>
+          The system supports M-Pesa and Airtel Money alongside cash, because
+          that is how customers in Kenya actually pay.
+        </p>
+
+        <h3>Security and access</h3>
+        <p>
+          A custom user model with manager roles controls who can do what, such
+          as who can issue refunds or change stock. Because every device keeps
+          its own local copy and syncs with PostgreSQL, the shop's records exist
+          in more than one place, so a failure in one doesn't take them all with
+          it.
+        </p>
+        <ul class="tags">
+          <li>Python</li>
+          <li>Django</li>
+          <li>Alpine.js</li>
+          <li>SQLite / PostgreSQL</li>
+          <li>Django Unfold</li>
+          <li>HTMX</li>
+          <li>Chart.js</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Results</h2>
+        <div class="results">
+          <div class="res">
+            <strong>Smooth Syncs</strong><span
+              >Data between local and central storage is always in sync</span
+            >
+          </div>
+          <div class="res">
+            <strong>~40</strong><span>Retail stores using this system</span>
+          </div>
+          <div class="res">
+            <strong>Live since</strong><span>April 2026</span>
+          </div>
+        </div>
+        <blockquote>
+          We love how easy this POS is to use, especially with the phone camera
+          and barcode scanner. Now, all my employees can complete sales wherever
+          they are in the store, and I can see sales and other data wherever I
+          am. The email alerts help me keep track of my stock, and being able to
+          see all transactions on my phone helps with financial management.<cite
+            >Njoroge Muhia, Retail Partner, Njuwa Traders</cite
+          >
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap next">
+        <a class="proj" href="/projects/shuleflow"
+          ><small>Next project</small><span class="t"
+            >Shuleflow school management</span
+          ></a
+        >
+        <a class="btn ghost" href="/projects">View all work</a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap cta">
+        <h2>Need a similar website, platform or tool for your business?</h2>
+        <p>Tell me what you're building and I'll reply with next steps.</p>
+        <a
+          class="btn"
+          href="mailto:kengitahi@proton.me?subject=Project%20enquiry"
+          >Start a project</a
+        >
+      </div>
+    </section>
+  </main>
+</Layout>

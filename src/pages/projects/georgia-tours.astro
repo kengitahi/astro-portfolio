@@ -1,0 +1,520 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import "@/assets/css/main.css";
+
+import { Image } from "astro:assets";
+import GeorgiaHome from "@/assets/images/georgia-home.png";
+---
+
+<Layout>
+  <main class="georgia-project">
+    <div class="wrap top">
+      <a class="back" href="/projects">&larr; Back to all projects</a>
+
+      <h1>Georgia Tours — Tour Booking, Payments &amp; SEO Enhancements</h1>
+      <p class="lead">
+        A WordPress tour-booking website built around WP Travel Engine, with
+        custom development focused on payment integration, international price
+        presentation, trip-page UX, language selection, and search visibility.
+        The work brings together booking-engine customization, theme-level
+        layout changes, and SEO enhancements for a travel business promoting
+        experiences in Georgia.
+      </p>
+
+      <dl class="meta">
+        <div>
+          <dt>Project</dt>
+          <dd>Georgia Tours</dd>
+        </div>
+        <div>
+          <dt>My role</dt>
+          <dd>
+            WordPress development, Payment integrations, custom plugin
+            development, debugging, technical SEO
+          </dd>
+        </div>
+        <div>
+          <dt>Year</dt>
+          <dd>2026</dd>
+        </div>
+        <div>
+          <dt>Platform</dt>
+          <dd>WordPress · WP Travel Engine · Tourex</dd>
+
+          <dt>
+            <a href="https://georgia-tours.org" rel="noopener" target="_blank"
+              >Visit Georgia Tours</a
+            >
+          </dt>
+        </div>
+        <dd></dd>
+      </dl>
+    </div>
+  </main>
+
+  <div class="wrap">
+    <figure class="shot wide hero-shot">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <Image src={GeorgiaHome} alt="R&P Consulting homepage" loading="eager" />
+      <figcaption>
+        Project context: a travel-booking experience for tours in Georgia.
+      </figcaption>
+    </figure>
+
+    <section>
+      <div class="narrow body-copy">
+        <h2>The challenge</h2>
+        <p>
+          A tour website needs to do more than display attractive destinations.
+          Visitors must be able to understand each trip, compare prices, choose
+          a booking option, and move through checkout with confidence. Behind
+          that experience, the site also needs reliable payment handling,
+          consistent trip metadata, and a layout that makes the most important
+          booking information easy to find.
+        </p>
+        <p>
+          The project involved extending an existing WordPress setup rather than
+          replacing its booking engine. That meant working with WP Travel
+          Engine's trip post type and hooks, the Tourex theme's templates, and
+          Yoast SEO's existing metadata output without creating unnecessary
+          conflicts or duplicate functionality.
+        </p>
+        <p>
+          A key constraint was to keep the booking system's actual transaction
+          currency separate from any converted prices shown for convenience.
+          Payment initiation, checkout display, and confirmed payment status had
+          to remain distinct parts of the flow.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>What I worked on</h2>
+      <div class="feats">
+        <div>
+          <h3>Flitt payment gateway integration</h3>
+          <p>
+            I built a plugin that allowed adding Flitt as a selectable payment
+            method in the WP Travel Engine checkout, including gateway settings
+            and the embedded-checkout flow.
+          </p>
+          <p>
+            The integration work included tracing order creation, checking
+            credential configuration, and correcting the checkout-token endpoint
+            used to open the payment interface.
+          </p>
+          <p>
+            From all this, the plugin also created bookings and sent the
+            appropriate emails and notifications to the admin and clients who
+            booked the trip.
+          </p>
+        </div>
+        <div>
+          <h3>Checkout request and response handling</h3>
+          <p>
+            Investigated the Create Order response and its signature
+            verification logic. The implementation needs to validate each
+            response according to the payment provider's contract rather than
+            assume every response contains the same signature fields. A created
+            order or opened checkout is not treated as proof of a successful
+            payment.
+          </p>
+        </div>
+        <div>
+          <h3>Multi-currency price display planning</h3>
+          <p>
+            Created a display-only currency switcher plugin for GEL, USD, EUR,
+            and GBP, using USD as the booking system's base currency.
+          </p>
+          <p>
+            The experience is intended to show indicative converted prices while
+            clearly explaining that checkout continues to charge in the
+            configured base currency.
+          </p>
+        </div>
+        <div>
+          <h3>Trip-page layout debugging</h3>
+          <p>
+            Traced the single-trip content flow through WP Travel Engine hooks
+            and examined why the intended main-content-plus-sidebar layout was
+            collapsing into one column.
+          </p>
+          <p>
+            The work focused on hook priorities and the surrounding
+            theme/template structure instead of assuming that reordering
+            callbacks alone would fix the layout.
+          </p>
+        </div>
+        <div>
+          <h3>SEO metadata and social sharing</h3>
+          <p>
+            Reviewed how Yoast SEO and the theme contribute trip titles,
+            descriptions, and Open Graph metadata. The goal is to provide useful
+            trip-specific snippets and sharing previews while avoiding duplicate
+            tags from multiple layers of the WordPress stack.
+          </p>
+        </div>
+        <div>
+          <h3>FAQ content and structured data</h3>
+          <p>
+            Planned an FAQ structure using the ACF fields
+            <code>faq_question</code> and <code>faq_answer</code>, with
+            corresponding FAQPage JSON-LD where appropriate.
+          </p>
+          <p>
+            Any generated schema matched the questions and answers visible on
+            the page and avoided duplicating schema already emitted by other
+            components.
+          </p>
+        </div>
+        <div>
+          <h3>Tour offer structured data</h3>
+          <p>
+            Evaluated the need for consistent Product/Offer-style structured
+            data around tour pricing. The implementation reflected the actual
+            offer and transaction currency, and accounted for the trip schema
+            already available through the booking plugin before adding custom
+            JSON-LD.
+          </p>
+        </div>
+        <div>
+          <h3>Theme and plugin integration</h3>
+          <p>
+            Worked within an existing WordPress stack rather than treating every
+            requirement as a separate application.
+          </p>
+          <p>
+            The solution considers WP Travel Engine hooks, Tourex templates,
+            Yoast output, ACF fields, and Elementor as connected parts of one
+            visitor experience.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="pair">
+        <figure class="shot half">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="concept-panel">
+            <span class="panel-label">Booking experience</span>
+            <h3>Trip details → booking → payment</h3>
+            <div class="flow-step">
+              <span>01</span><div>
+                <strong>Explore a trip</strong><small
+                  >Duration, itinerary and key facts</small
+                >
+              </div>
+            </div>
+            <div class="flow-step">
+              <span>02</span><div>
+                <strong>Review the price</strong><small
+                  >Clear base currency and display price</small
+                >
+              </div>
+            </div>
+            <div class="flow-step">
+              <span>03</span><div>
+                <strong>Choose payment</strong><small
+                  >Gateway selection in checkout</small
+                >
+              </div>
+            </div>
+            <div class="flow-step">
+              <span>04</span><div>
+                <strong>Confirm the outcome</strong><small
+                  >Booking status follows verified payment state</small
+                >
+              </div>
+            </div>
+          </div>
+          <figcaption>
+            Booking flow and payment-state considerations.
+          </figcaption>
+        </figure>
+
+        <figure class="shot half">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="concept-panel">
+            <span class="panel-label">Technical SEO</span>
+            <h3>Trip metadata built around the actual offer</h3>
+            <div class="schema-row">
+              <span>Title</span><strong>Trip name + destination</strong>
+            </div>
+            <div class="schema-row">
+              <span>Description</span><strong
+                >Duration, location and booking context</strong
+              >
+            </div>
+            <div class="schema-row">
+              <span>FAQ</span><strong>ACF question-and-answer fields</strong>
+            </div>
+            <div class="schema-row">
+              <span>Offer</span><strong>Price and currency consistency</strong>
+            </div>
+          </div>
+          <figcaption>
+            SEO and structured-data design considerations.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="narrow body-copy process">
+      <h2>How it's built</h2>
+
+      <h3>Working with the WordPress booking engine</h3>
+      <p>
+        WP Travel Engine provides the core trip and booking functionality. The
+        trip content type uses the <code>trip</code> slug, and the customization work
+        builds around the plugin's existing hooks and data model. This approach keeps
+        trip management within WordPress and reduces the need to recreate booking
+        features that the plugin already provides.
+      </p>
+      <p>
+        The Tourex theme controls important parts of the presentation layer.
+        When a trip page does not render in the intended layout, both the hook
+        callbacks and the template's parent containers are used to creat the
+        intended layout. Hook priority determines callback order but does not
+        independently create a two-column layout or repair an incompatible
+        wrapper.
+      </p>
+
+      <h3>Flitt checkout integration</h3>
+      <p>
+        The payment work separates order creation from the embedded checkout
+        step and from final payment confirmation. The checkout flow uses the
+        provider's token endpoint to initialize the embedded payment interface.
+      </p>
+      <p>
+        The token endpoint was distinguished from a separate checkout URL
+        endpoint, and the Create Order response was reviewed against the
+        signature checks applied by the integration.
+      </p>
+      <p>
+        A successful checkout initialization alone is not sufficient evidence
+        that the live payment flow, callbacks, and booking-status updates are
+        all working correctly, so I completed automated and manual end-to-end
+        verification for those stages.
+      </p>
+
+      <h3>Currency display without changing the charge</h3>
+      <p>
+        The currency-switcher was built to be intentionally display-only. The
+        planned currencies were Georgian lari (GEL), US dollars (USD), euros
+        (EUR), and British pounds (GBP), with USD retained as the booking
+        system's base currency. Frankfurter was used as the exchange-rate
+        source, and the switcher was placed in the Elementor header as well as a
+        custom footer section only show on mobile.
+      </p>
+      <p>
+        A modal was used to explain that converted values are indicative and
+        that the final booking is charged in the base currency. This boundary
+        matters because changing a display preference must never silently change
+        the amount or currency sent to the payment gateway.
+      </p>
+
+      <h3>SEO, FAQs, and structured data</h3>
+      <p>
+        Yoast SEO was already participating in title and metadata generation, so
+        custom SEO code needed to work with that output.
+      </p>
+      <p>
+        The FAQ implementation uses ACF fields named <code>faq_question</code> and
+        <code>faq_answer</code>. FAQPage JSON-LD was and ontinues to be
+        generated from the same content users can see on the page.
+      </p>
+      <p>
+        Product/Offer-style schema also reflected the actual tour offer,
+        including the correct price and currency. Since WP Travel Engine can
+        emit trip-related schema, its existing output was inspected before
+        custom structured data wass added. The aim was consistent,
+        non-duplicated metadata rather than simply adding more JSON-LD.
+      </p>
+
+      <h3>Maintainability and debugging</h3>
+      <p>
+        The implementation uses WordPress-native extension points where
+        possible, including plugin settings, hooks, filters, custom fields, and
+        theme templates. PHP development tooling and WordPress/WP Travel Engine
+        stubs were also part of the local workflow to improve editor completion
+        and catch integration issues during development.
+      </p>
+
+      <ul class="tags">
+        <li>WordPress</li>
+        <li>PHP</li>
+        <li>WP Travel Engine</li>
+        <li>Flitt</li>
+        <li>Yoast SEO</li>
+        <li>Advanced Custom Fields</li>
+        <li>Elementor</li>
+        <li>JSON-LD</li>
+        <li>Frankfurter API</li>
+        <li>WordPress hooks</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Project outcomes</h2>
+      <div class="results">
+        <div class="res">
+          <strong>Payment flow</strong>
+          <span
+            >Embedded checkout endpoint and response-validation during live
+            payments.</span
+          >
+        </div>
+        <div class="res">
+          <strong>Currency clarity</strong>
+          <span
+            >A defined display-only conversion approach that keeps the base
+            booking currency authoritative.</span
+          >
+        </div>
+        <div class="res">
+          <strong>SEO foundation</strong>
+          <span
+            >Trip metadata, ACF-powered FAQs, Open Graph, and structured-data
+            requirements implemented.</span
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap next">
+      <a class="proj" href="/projects/shuleflow"
+        ><small>Next project</small><span class="t"
+          >Shuleflow school management</span
+        ></a
+      >
+      <a class="btn ghost" href="/projects">View all work</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap cta">
+      <h2>Need a booking website or a custom WordPress integration?</h2>
+      <p>
+        I build and extend websites with a focus on reliable workflows,
+        maintainable code, and a clear user experience.
+      </p>
+      <a class="btn" href="mailto:kengitahi@proton.me?subject=Project%20enquiry"
+        >Start a project</a
+      >
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-kicker,
+  .hero-overlay > span:last-child {
+    font-size: 0.9rem;
+  }
+
+  .concept-panel {
+    min-height: 330px;
+    padding: clamp(1rem, 3vw, 2rem);
+    color: var(--text, #222);
+    background: var(--surface, #f7f7f5);
+  }
+
+  .panel-label {
+    display: inline-block;
+    margin-bottom: 0.65rem;
+    color: var(--muted, #666);
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .concept-panel h3 {
+    margin: 0 0 1.25rem;
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    line-height: 1.15;
+  }
+
+  .flow-step,
+  .schema-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.8rem 0;
+    border-top: 1px solid var(--border, #ddd);
+  }
+
+  .flow-step > span {
+    display: grid;
+    flex: 0 0 2rem;
+    width: 2rem;
+    height: 2rem;
+    place-items: center;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    font-size: 0.75rem;
+  }
+
+  .flow-step div {
+    display: grid;
+    gap: 0.2rem;
+  }
+
+  .flow-step small,
+  .panel-note {
+    color: var(--muted, #666);
+    font-size: 0.85rem;
+  }
+
+  .schema-row {
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .schema-row span {
+    color: var(--muted, #666);
+  }
+
+  .schema-row strong {
+    max-width: 65%;
+    text-align: right;
+  }
+
+  .panel-note {
+    margin-top: 1.2rem;
+    line-height: 1.6;
+  }
+
+  .outcome-note {
+    max-width: 75ch;
+    margin-top: 1.25rem;
+    color: var(--muted, #666);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  code {
+    overflow-wrap: anywhere;
+    font-size: 0.92em;
+  }
+
+  @media (max-width: 640px) {
+    .hero-visual img {
+      height: 360px;
+    }
+
+    .concept-panel {
+      min-height: auto;
+    }
+  }
+</style>

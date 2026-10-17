@@ -569,7 +569,7 @@ dl.stack {
     padding: 1.1rem 0
 }
 
-.faq-inner>details(:first-child) {
+.faq-inner>details:first-child {
     border-top: 1px solid var(--line);
 }
 

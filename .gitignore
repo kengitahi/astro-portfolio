@@ -28,3 +28,4 @@ pnpm-debug.log*
 .vscode
 html_portfolio
 node_modules
+notes.md

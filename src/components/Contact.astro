@@ -1,0 +1,54 @@
+<section id="contact">
+    <div class="wrap contact">
+        <div>
+            <h2>Let's work together</h2>
+            <p class="lead">
+                Tell me what you're building and I'll reply with next steps.
+            </p>
+            <div class="direct">
+                <p>
+                    Prefer email?
+                    <a
+                        class="mail"
+                        href="mailto:kengitahi@proton.me"
+                        aria-label="Email kengitahi@proton.me"
+                    >
+                        <span class="mail-label">Email me</span>
+                        <span class="mail-addr" aria-hidden="true"
+                            >kengitahi@proton.me</span
+                        >
+                    </a>
+                </p>
+            </div>
+        </div>
+        <form
+            id="form"
+            name="contact"
+            method="POST"
+            action="/thanks"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+        >
+            <input type="hidden" name="form-name" value="contact" />
+            <p hidden>
+                <label>Don't fill this out: <input name="bot-field" /></label>
+            </p>
+
+            <label>Name<input name="name" required autocomplete="name" /></label
+            >
+            <label>
+                Email<input
+                    name="email"
+                    type="email"
+                    required
+                    autocomplete="email"
+                />
+            </label>
+            <label
+                >Project details<textarea name="msg" required></textarea></label
+            >
+
+            <button class="btn" type="submit">Send message</button>
+        </form>
+    </div>
+</section>

@@ -10,13 +10,13 @@ document.querySelectorAll('[data-split]').forEach(el => {
             const frag = document.createDocumentFragment();
             child.textContent.split(/(\s+)/).forEach(part => {
                 if (!part.trim()) return frag.append(part);
-                const w = document.createElement('span');
+                const word = document.createElement('span');
                 const inner = document.createElement('span');
-                w.className = 'w';
+                word.className = 'w';
                 inner.textContent = part;
                 inner.style.setProperty('--i', n++);
-                w.append(inner);
-                frag.append(w);
+                word.append(inner);
+                frag.append(word);
             });
             child.replaceWith(frag);
         });
@@ -25,8 +25,8 @@ document.querySelectorAll('[data-split]').forEach(el => {
 
 // 2. Mark things to reveal. Children of these groups get a stagger index.
 const groups = '.projects, .services, .feats, .results, .quotes, .grid, .faq, .stack';
-document.querySelectorAll(groups).forEach(g =>
-    [...g.children].forEach((c, i) => { c.classList.add('reveal'); c.style.setProperty('--i', i); })
+document.querySelectorAll(groups).forEach(group =>
+    [...group.children].forEach((child, index) => { child.classList.add('reveal'); child.style.setProperty('--i', index); })
 );
 
 const singles = [
